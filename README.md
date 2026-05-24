@@ -2,7 +2,7 @@
 
 ## Stack Technique
 
-- Framework : React 19 / Vite
+- Framework : React 19 / Next 16
 
 - Langage : TypeScript
 
@@ -12,19 +12,29 @@
 
 - Utilitaires : clsx (gestion dynamique des classes)
 
-## Fonctionnalités du composant "Button"
-
-- Variantes : Primary, Secondary, Ghost, Destructive.
-
-- Icon Button : Variants spécifiques Alpha_dark et Alpha_light accessibles uniquement via le typage si les props indiquées sont celles d'un IconButton.
+## Fonctionnalités des composants "Button"
 
 - Tailles : M, S et XS avec adaptation automatique de la typographie et des icônes.
+
+- États : Gestion du Hover, Focus et Disabled.
+
+### Fonctionnalités du composant "Button Standard"
+
+- Variantes : Primary, Secondary, Ghost, Destructive.
 
 - Slots d'icônes : Support de leading_icon et trailing_icon.
 
 - Badge : Affichage d'un compteur optionnel intégré.
 
-- États : Gestion du Hover, Focus et Disabled.
+### Fonctionnalités du composant "Button Icon"
+
+- Variantes: Primary, Secondary, Alpha_dark et Alpha_light.
+
+### Fonctionnalités du composant "Button Group"
+
+- Slots d'icônes : Support de leading_icon et trailing_icon.
+
+- Badge : Affichage d'un compteur optionnel intégré.
 
 ## Installation et Lancement
 
@@ -32,8 +42,10 @@
 
 ```
 git clone https://github.com/kfill420/Uxer.git
-cd Uxer
+cd ComposantButtonDesignSystem
 pnpm i
+pnpm approve-builds
+Appuyer sur la touche "A" puis "Entrer" puis "Y"
 pnpm dev
 ```
 
@@ -41,7 +53,7 @@ pnpm dev
 
 ```
 git clone https://github.com/kfill420/Uxer.git
-cd Uxer
+cd ComposantButtonDesignSystem
 npm i
 npm run dev
 ```
