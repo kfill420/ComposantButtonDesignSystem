@@ -1,0 +1,235 @@
+@use "../../../../styles/typography";
+
+.groupButton {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--Radius-m);
+    box-shadow: var(--shadow-button-primary);
+    overflow: hidden;
+
+    .primaryButton {
+        display: flex;
+        flex-direction: row;
+
+        .leadingIcon, .trailingIcon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .badge{
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: var(--Radius-xs);
+        }
+
+    }
+
+    .secondaryButton {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &:focus-within {
+        box-shadow: var(--Focus-ring-primary);
+    }
+}
+
+.disabled {
+    opacity: 40%;
+}
+
+.primary {
+    background-color: var(--color-button-primary-default);
+    border: 1px solid var(--Neutral-Black-30);
+
+    .primaryButton {
+        .leadingIcon, .trailingIcon {
+            color: var(--Neutral-White-100);
+        }
+
+        .text {
+            color: var(--color-text-invert);
+        }
+
+        .badge {
+            background-color: var(--Neutral-White-20);
+        }
+    }
+
+    .secondaryButton {
+        border-left: 1px solid var(--Neutral-Black-30);
+        color: var(--Neutral-White-100);
+    }
+
+    &:hover {
+        background-color: var(--color-button-primary-hover);
+    }
+}
+
+.secondary {
+    background-color: var(--color-button-secondary-default);
+    border: 1px solid var(--color-stroke-primary);
+
+    .primaryButton{
+        .leadingIcon, .trailingIcon {
+            color: var(--Neutral-Grey-500);
+        }
+
+        .text {
+            color: var(--color-text-body);
+        }
+
+        .badge {
+            color: var(--color-text-body);
+            background-color: var(--Neutral-Black-10);
+        }
+    }
+    
+    .secondaryButton {
+        border-left: 1px solid var(--color-stroke-primary);
+        color: var(--Neutral-Grey-500);
+    }
+
+    &:hover {
+        background-color: var(--color-button-secondary-hover);
+    }
+}
+
+.destructive {
+    background-color: var(--color-button-destructive-default);
+    border: 1px solid var(--Neutral-Black-30);
+    color: var(--color-text-invert);
+    
+    .primaryButton{
+        .leadingIcon, .trailingIcon {
+            color: var(--Neutral-White-100);
+        }
+
+        .badge {
+            background-color: var(--Neutral-Black-20);
+        }
+    }
+    
+    .secondaryButton {
+        border-left: 1px solid var(--Neutral-Black-30);
+        color: var(--Neutral-White-100);
+    }
+
+    &:hover {
+        background-color: var(--color-button-destructive-hover);
+    }
+}
+
+.m {
+    max-height: 40px;
+    
+    .primaryButton {
+        gap: var(--Gap-xs);
+        padding: var(--Gap-xs) var(--Gap-s);
+
+        .leadingIcon, .trailingIcon {
+            svg {
+                width: var(--Icon-m);
+                height: var(--Icon-m);
+            }
+        }
+
+        .text {
+            @include typography.typography("m", "medium");
+        }
+
+        .badge {
+            min-width: 20px;
+            height: 20px;
+            padding: 8px 5px;
+            @include typography.typography("xs", "semibold");
+        }
+    }
+
+    .secondaryButton {
+        padding: var(--Gap-xs) var(--Gap-s);
+
+        svg {
+                width: var(--Icon-m);
+                height: var(--Icon-m);
+            }
+    }
+}
+
+.s {
+    max-height: 36px;
+
+    .primaryButton {
+        gap: var(--Gap-xs);
+        padding: var(--Gap-xs) var(--Gap-s);
+        
+        .leadingIcon, .trailingIcon {
+            svg {
+                width: var(--Icon-m);
+                height: var(--Icon-m);
+            }
+        }
+
+        .text {
+            @include typography.typography("m", "medium");
+        }
+
+        .badge {
+            min-width: 20px;
+            height: 20px;
+            padding: 8px 5px;
+            @include typography.typography("xs", "semibold");
+        }
+    }
+
+    .secondaryButton {
+        padding: var(--Gap-xs) var(--Gap-s);
+
+        svg {
+                width: var(--Icon-m);
+                height: var(--Icon-m);
+            }
+    }
+}
+
+.xs {
+    max-height: 34px;
+
+    .primaryButton {
+        gap: var(--Gap-xxs);
+        padding: var(--Gap-xs);
+
+        .leadingIcon, .trailingIcon {
+            svg {
+                width: var(--Icon-s);
+                height: var(--Icon-s);
+            }
+        }
+
+        .text {
+            @include typography.typography("s", "medium");
+        }
+
+        .badge {
+            min-width: 16px;
+            height: 16px;
+            padding: 8px 5px;
+            @include typography.typography("xxs", "semibold");
+        }
+    } 
+
+    .secondaryButton {
+        padding: var(--Gap-xs);
+
+        svg {
+                width: var(--Icon-s);
+                height: var(--Icon-s);
+            }
+    }
+}

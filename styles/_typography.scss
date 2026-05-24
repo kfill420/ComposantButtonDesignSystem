@@ -1,0 +1,42 @@
+@use "sass:map";
+
+$font-sizes: (
+  "display-l": 40px,
+  "display-m": 32px,
+  "h1": 24px,
+  "h2": 20px,
+  "h3": 16px,
+  "l": 16px,
+  "m": 14px,
+  "s": 13px,
+  "xs": 12px,
+  "xxs": 10px
+);
+
+$line-heights: (
+  "display-l": 48px, 
+  "display-m": 39px,
+  "h1": 29px, 
+  "h2": 24px, 
+  "h3": 19px,
+  "l": 24px, 
+  "m": 20px, 
+  "s": 18px, 
+  "xs": 16px, 
+  "xxs": 14px
+);
+
+$font-weights: (
+  "light": 300,
+  "regular": 400,
+  "medium": 500,
+  "semibold": 600
+);
+
+@mixin typography($size, $weight: "regular") {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-size: map.get($font-sizes, $size);
+  line-height: map.get($line-heights, $size);
+  font-weight: map.get($font-weights, $weight);
+}

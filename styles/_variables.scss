@@ -1,0 +1,42 @@
+html {
+  /* Brand tokens - Mode 1 */
+  --brand-primary: var(--Brand-Fairway-600);
+  --brand-primary-hover: var(--Brand-Fairway-700);
+
+  /* Design tokens - Mode 1 */
+  --color-bg-default: var(--Neutral-White-100);
+  --color-bg-surface: var(--Neutral-Grey-50);
+  --color-stroke-primary: var(--Neutral-Grey-300);
+  --color-text-title: var(--Neutral-Grey-950);
+  --color-stroke-secondary: var(--Neutral-Grey-200);
+  --color-text-body: var(--Neutral-Grey-900);
+  --color-text-invert: var(--Neutral-White-100);
+  --color-text-secondary: var(--Neutral-Grey-800);
+  --color-text-tertiary: var(--Neutral-Grey-500);
+  --color-text-placeholder: var(--Neutral-Grey-400);
+  --color-text-link: var(--Semantic-Blue-600);
+  --color-text-error: var(--Semantic-Red-600);
+  --color-text-warning: var(--Semantic-Orange-600);
+  --color-text-success: var(--Semantic-Green-600);
+  --color-button-primary-default: var(--brand-primary);
+  --color-button-primary-hover: var(--brand-primary-hover);
+  --color-button-secondary-default: var(--Neutral-White-100);
+  --color-button-secondary-hover: var(--Neutral-Grey-100);
+  --color-button-ghost-default: #FFFFFF00;
+  --color-button-ghost-hover: var(--Neutral-Grey-100);
+  --color-button-destructive-default: var(--Semantic-Red-600);
+  --color-button-destructive-hover: var(--Semantic-Red-700);
+  --modal-size-S: 480px;
+  --modal-size-M: 640px;
+  --modal-size-L: 800px;
+  --modal-size-XL: 960px;
+  --shadow-button-primary: var(--Shadow-bottom-xs);
+}
+
+[data-mode="mode-2"] {
+  --brand-primary: var(--Brand-Clubhouse-600);
+  --brand-primary-hover: var(--Brand-Clubhouse-700);
+
+  --color-button-primary-default: var(--brand-primary);
+  --color-button-primary-hover: var(--brand-primary-hover);
+}

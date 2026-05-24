@@ -1,0 +1,177 @@
+@use "../../../../styles/typography";
+
+.standardButton {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--Radius-m);
+    box-shadow: var(--shadow-button-primary);
+
+    .leadingIcon, .trailingIcon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .badge{
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: var(--Radius-xs);
+    }
+
+    &:focus {
+        box-shadow: var(--Focus-ring-primary);
+    }
+
+    &:disabled {
+        opacity: 40%;
+    }
+}
+
+.primary {
+    background-color: var(--color-button-primary-default);
+    border: 1px solid var(--Neutral-Black-30);
+    color: var(--color-text-invert);
+
+    .leadingIcon, .trailingIcon {
+        color: var(--Neutral-White-100);
+    }
+
+    .badge {
+        background-color: var(--Neutral-White-20);
+    }
+
+    &:hover {
+        background-color: var(--color-button-primary-hover);
+    }
+}
+
+.secondary {
+    background-color: var(--color-button-secondary-default);
+    border: 1px solid var(--color-stroke-primary);
+    color: var(--color-text-body);
+
+    .leadingIcon, .trailingIcon {
+        color: var(--Neutral-Grey-500);
+    }
+
+    .badge {
+        background-color: var(--Neutral-Black-10);
+    }
+
+    &:hover {
+        background-color: var(--color-button-secondary-hover);
+    }
+}
+
+.ghost {
+    background-color: var(--color-button-ghost-default);
+    color: var(--color-text-body);
+
+    .leadingIcon, .trailingIcon {
+        color: var(--Neutral-Grey-500);
+    }
+
+    .badge {
+        background-color: var(--Neutral-Black-10);
+    }
+
+    &:hover {
+        background-color: var(--color-button-ghost-hover);
+    }
+}
+
+.destructive {
+    background-color: var(--color-button-destructive-default);
+    border: 1px solid var(--Neutral-Black-30);
+    color: var(--color-text-invert);
+
+    .leadingIcon, .trailingIcon {
+        color: var(--Neutral-White-100);
+    }
+
+    .badge {
+        background-color: var(--Neutral-Black-20);
+    }
+
+    &:hover {
+        background-color: var(--color-button-destructive-hover);
+    }
+}
+
+.m {
+    display: flex;
+    gap: var(--Gap-xs);
+    padding: var(--Gap-xs) var(--Gap-s);
+    max-height: 40;
+
+    .leadingIcon, .trailingIcon {
+        svg {
+            width: var(--Icon-m);
+            height: var(--Icon-m);
+        }
+    }
+
+    .text {
+        @include typography.typography("m", "medium");
+    }
+
+    .badge {
+        min-width: 20px;
+        height: 20px;
+        padding: 8px 5px;
+        @include typography.typography("xs", "semibold");
+    }
+}
+
+.s {
+    display: flex;
+    gap: var(--Gap-xs);
+    padding: var(--Gap-xs) var(--Gap-s);
+    height: 36px;
+
+    .leadingIcon, .trailingIcon {
+        svg {
+            width: var(--Icon-m);
+            height: var(--Icon-m);
+        }
+    }
+
+    .text {
+        @include typography.typography("m", "medium");
+    }
+
+    .badge {
+        min-width: 20px;
+        height: 20px;
+        padding: 8px 5px;
+        @include typography.typography("xs", "semibold");
+    }
+}
+
+.xs {
+    display: flex;
+    gap: var(--Gap-xxs);
+    padding: var(--Gap-xs) var(--Gap-xs);
+    max-height: 34px;
+
+    .leadingIcon, .trailingIcon {
+        svg {
+            width: var(--Icon-s);
+            height: var(--Icon-s);
+        }
+    }
+
+    .text {
+        @include typography.typography("s", "medium");
+    }
+
+    .badge {
+        min-width: 16px;
+        height: 16px;
+        padding: 8px 5px;
+        @include typography.typography("xxs", "semibold");
+    }
+}

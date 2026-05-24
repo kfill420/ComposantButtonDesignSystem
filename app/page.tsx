@@ -1,63 +1,73 @@
-import Image from "next/image";
+"use client";
+
+import GroupButton from "@/components/ui/button/groupButton/groupButton";
+import IconButton from "@/components/ui/button/iconButton/iconButton";
+import StandardButton from "@/components/ui/button/standardButton/standarButton";
+import { CheckIcon, MoonIcon, SunIcon, TrashIcon } from "@phosphor-icons/react";
+import { useState } from "react";
 
 export default function Home() {
+  const [mode2, setMode2] = useState(false);
+  const [size, setSize] = useState<"m" | "s" | "xs">("m")
+  const [leadingIcon, setLeadingIcon] = useState(false);
+  const [trailingIcon, setTrailingIcon] = useState(false);
+  const [badge, setBadge] = useState(false);
+  const [disabled, setDisabled] = useState(false);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div className="home" data-mode={mode2 ? 'mode-2' : undefined}>
+      <main className="main">
+        <div className="standard">
+          <IconButton variant="primary" icon={<SunIcon />} disabled={!mode2} onClick={() => setMode2(false)} />
+          <IconButton variant="primary" icon={<MoonIcon />} disabled={mode2} onClick={() => setMode2(true)} />
+          <select className="select" name="standard-select-size" id="standard-select-size" onChange={(e) => setSize(e.target.value as "m" | "s" | "xs")}>
+            <option value="m">m</option>
+            <option value="s">s</option>
+            <option value="xs">xs</option>
+          </select>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="standard">
+          <StandardButton size={size} variant="primary" leadingIcon={leadingIcon && <CheckIcon />} trailingIcon={trailingIcon && <TrashIcon />} badge={badge ? "2" : undefined} disabled={disabled}>Standard</StandardButton>
+          <StandardButton size={size} variant="secondary" leadingIcon={leadingIcon && <CheckIcon />} trailingIcon={trailingIcon && <TrashIcon />} badge={badge ? "2" : undefined} disabled={disabled}>Standard</StandardButton>
+          <StandardButton size={size} variant="ghost" leadingIcon={leadingIcon && <CheckIcon />} trailingIcon={trailingIcon && <TrashIcon />} badge={badge ? "2" : undefined} disabled={disabled}>Standard</StandardButton>
+          <StandardButton size={size} variant="destructive" leadingIcon={leadingIcon && <CheckIcon />} trailingIcon={trailingIcon && <TrashIcon />} badge={badge ? "2" : undefined} disabled={disabled}>Standard</StandardButton>
+        </div>
+        <div className="standard">
+          <GroupButton size={size} variant="primary" leadingIcon={leadingIcon && <CheckIcon />}  trailingIcon={trailingIcon && <TrashIcon />} badge={badge ? "2" : undefined} secondButtonIcon={<CheckIcon />} disabled={disabled}>Groupe</GroupButton>
+          <GroupButton size={size} variant="secondary" leadingIcon={leadingIcon && <CheckIcon />} trailingIcon={trailingIcon && <TrashIcon />} badge={badge ? "2" : undefined} secondButtonIcon={<CheckIcon />} disabled={disabled}>Groupe</GroupButton>
+          <GroupButton size={size} variant="destructive" leadingIcon={leadingIcon && <CheckIcon />} trailingIcon={trailingIcon && <TrashIcon />} badge={badge ? "2" : undefined} secondButtonIcon={<CheckIcon />} disabled={disabled}>Groupe</GroupButton>
+        </div>
+        <div className="standard">
+          <IconButton variant="primary" icon={<TrashIcon />} disabled={disabled} />
+          <IconButton variant="secondary" icon={<TrashIcon />} disabled={disabled} />
+          <IconButton variant="alpha-light" icon={<TrashIcon />} disabled={disabled} />
+          <IconButton variant="alpha-dark" icon={<TrashIcon />} disabled={disabled} />
+        </div>
+        <div className="standard">
+          <div className="checkbox">
+            <label htmlFor="leadingIcon" className="label">
+              leadingIcon: 
+              <input type="checkbox" name="leadingIcon" checked={leadingIcon} onChange={() => setLeadingIcon(!leadingIcon)} />
+            </label>
+          </div>
+          <div>
+            <label htmlFor="trailingIcon" className="label">
+              trailingIcon: 
+              <input type="checkbox" name="trailingIcon" checked={trailingIcon} onChange={() => setTrailingIcon(!trailingIcon)} />
+            </label>
+          </div>
+          <div>
+            <label htmlFor="badge" className="label">
+              badge: 
+              <input type="checkbox" name="badge" checked={badge} onChange={() => setBadge(!badge)} />
+            </label>
+          </div>
+          <div>
+            <label htmlFor="disabled" className="label">
+              disabled: 
+              <input type="checkbox" name="disabled" checked={disabled} onChange={() => setDisabled(!disabled)} />
+            </label>
+          </div>
         </div>
       </main>
     </div>
