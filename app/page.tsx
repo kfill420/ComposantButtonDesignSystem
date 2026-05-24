@@ -3,11 +3,12 @@
 import GroupButton from "@/components/ui/button/groupButton/groupButton";
 import IconButton from "@/components/ui/button/iconButton/iconButton";
 import StandardButton from "@/components/ui/button/standardButton/standarButton";
-import { CheckIcon, MoonIcon, SunIcon, TrashIcon } from "@phosphor-icons/react";
+import { BlueprintIcon, CheckIcon, MoonIcon, SunIcon, TrashIcon, WaveSineIcon, WaveSquareIcon } from "@phosphor-icons/react";
 import { useState } from "react";
 
 export default function Home() {
   const [mode2, setMode2] = useState(false);
+  const [brand2, setBrand2] = useState(false);
   const [size, setSize] = useState<"m" | "s" | "xs">("m")
   const [leadingIcon, setLeadingIcon] = useState(false);
   const [trailingIcon, setTrailingIcon] = useState(false);
@@ -15,11 +16,11 @@ export default function Home() {
   const [disabled, setDisabled] = useState(false);
 
   return (
-    <div className="home" data-mode={mode2 ? 'mode-2' : undefined}>
+    <div className="home" data-mode={mode2 ? 'mode-2' : undefined} data-brand={brand2 ? 'brand-2' : undefined}>
       <main className="main">
         <div className="standard">
-          <IconButton variant="primary" icon={<SunIcon />} disabled={!mode2} onClick={() => setMode2(false)} />
-          <IconButton variant="primary" icon={<MoonIcon />} disabled={mode2} onClick={() => setMode2(true)} />
+          <IconButton variant="primary" icon={mode2 ? <WaveSquareIcon /> : <WaveSineIcon />} onClick={() => setMode2(!mode2)} />
+          <IconButton variant="primary" icon={<BlueprintIcon />} onClick={() => setBrand2(!brand2)} />
           <select className="select" name="standard-select-size" id="standard-select-size" onChange={(e) => setSize(e.target.value as "m" | "s" | "xs")}>
             <option value="m">m</option>
             <option value="s">s</option>

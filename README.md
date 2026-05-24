@@ -1,4 +1,6 @@
-# Test d’alternance développeur Front-end Uxer
+# Intégration d'un composant bouton issue d'un design system
+
+- Design system: Composant Bouton.fig
 
 ## Stack Technique
 
